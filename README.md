@@ -3,7 +3,7 @@
 
 Interactive trip planner for the Swainston family road trip from Highlands Ranch, CO to Six Flags Magic Mountain in Valencia, CA — Summer 2026.
 
-**Live site:** [https://calebswainston.github.io/Mila-Magic/](https://calebswainston.github.io/Mila-Magic/)
+**Live site:** [https://AutoMindA1.github.io/Mila-Magic/](https://AutoMindA1.github.io/Mila-Magic/)
 
 ## Family
 
