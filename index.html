@@ -1,0 +1,969 @@
+[index.html](https://github.com/user-attachments/files/26042269/index.html)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swainston Family · Magic Mountain 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@500;600;700;800&family=Work+Sans:wght@400;500;600&display=swap');
+
+:root {
+  --earth-deep: #1E120B;
+  --earth-mid: #3D2519;
+  --earth-warm: #5C3A2E;
+  --ochre: #B8860B;
+  --amber: #D4A04A;
+  --sand: #E8D5B7;
+  --sand-light: #F5EDE0;
+  --cream: #FAF6F0;
+  --sky: #7BA7C2;
+  --sky-deep: #3E7A9E;
+  --coaster-red: #C44536;
+  --coaster-red-light: #E8675A;
+  --green: #4A7C5C;
+  --green-light: #EAF2EC;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Work Sans', sans-serif;
+  background: var(--cream);
+  color: var(--earth-deep);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+/* ── Hero ── */
+.hero {
+  background: var(--earth-deep);
+  color: var(--cream);
+  padding: 72px 24px 56px;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 300'%3E%3Cpath d='M0 280 Q50 200 100 240 Q130 260 160 220 Q200 160 240 200 Q260 220 280 180 Q320 100 380 160 Q400 180 420 120 Q460 40 520 100 Q540 120 560 80 Q600 20 660 70 Q700 110 740 60 Q780 20 820 50 Q860 80 900 40 Q940 10 980 30 Q1020 50 1060 20 Q1100 0 1140 10 L1200 0 L1200 300 L0 300 Z' fill='%233D2519' opacity='0.3'/%3E%3Cpath d='M0 290 Q100 250 200 270 Q300 290 400 260 Q500 230 600 250 Q700 270 800 240 Q900 210 1000 230 Q1100 250 1200 220 L1200 300 L0 300 Z' fill='%235C3A2E' opacity='0.2'/%3E%3C/svg%3E") center bottom / cover no-repeat;
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.hero h1 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+.hero h1 .dot { color: var(--ochre); }
+.hero .tagline {
+  font-family: 'DM Mono', monospace;
+  font-size: clamp(0.75rem, 2vw, 0.9rem);
+  color: var(--sand);
+  letter-spacing: 0.5px;
+}
+
+/* ── Section Headers ── */
+.section {
+  padding: 48px 0;
+}
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.section-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--earth-warm);
+  letter-spacing: 1px;
+}
+.section-title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--earth-deep);
+}
+
+/* ── Scenario Tabs ── */
+.scenario-tabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.scenario-tabs::-webkit-scrollbar { display: none; }
+
+.scenario-tab {
+  flex-shrink: 0;
+  padding: 12px 20px;
+  border: 2px solid var(--sand);
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--earth-mid);
+  transition: all 0.2s;
+  touch-action: manipulation;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+}
+.scenario-tab:hover { border-color: var(--earth-warm); }
+.scenario-tab.active { color: #fff; border-color: transparent; }
+.scenario-tab[data-accent="amber"].active { background: var(--amber); }
+.scenario-tab[data-accent="sky-deep"].active { background: var(--sky-deep); }
+.scenario-tab[data-accent="green"].active { background: var(--green); }
+.scenario-tab[data-accent="ochre"].active { background: var(--ochre); }
+.scenario-tab[data-accent="coaster-red"].active { background: var(--coaster-red); }
+
+.rec-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  background: var(--ochre);
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: absolute;
+  top: -8px;
+  right: 8px;
+}
+
+/* ── Scenario Detail ── */
+.scenario-detail {
+  background: #fff;
+  border: 1px solid var(--sand);
+  border-radius: 14px;
+  padding: 32px;
+  margin-top: 16px;
+}
+.scenario-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.scenario-name {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 1.35rem;
+}
+.scenario-days {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--earth-warm);
+  background: var(--sand-light);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+.scenario-tagline {
+  font-style: italic;
+  color: var(--earth-warm);
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+.scenario-lodging {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--earth-warm);
+  margin-bottom: 20px;
+}
+
+/* ── Cost Table ── */
+.cost-table { width: 100%; border-collapse: collapse; }
+.cost-table th {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--earth-warm);
+  text-align: left;
+  padding: 8px 0;
+  border-bottom: 2px solid var(--sand);
+}
+.cost-table th:last-child { text-align: right; }
+.cost-table td {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--sand-light);
+  font-size: 0.9rem;
+  vertical-align: middle;
+}
+.cost-table td:last-child {
+  text-align: right;
+  font-family: 'DM Mono', monospace;
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+.cost-table tr.total-row td {
+  border-top: 2px solid var(--earth-warm);
+  border-bottom: none;
+  font-weight: 700;
+  padding-top: 16px;
+  font-size: 1rem;
+}
+.cost-table tr.total-row td:last-child {
+  font-size: 1.1rem;
+}
+
+/* ── Chips ── */
+.chip-group {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.chip {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1.5px solid var(--sand);
+  background: var(--sand-light);
+  color: var(--earth-mid);
+  cursor: pointer;
+  min-height: 34px;
+  display: flex;
+  align-items: center;
+  touch-action: manipulation;
+  transition: all 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.chip:hover { border-color: var(--earth-warm); }
+.chip.selected {
+  color: #fff;
+  border-color: transparent;
+}
+
+/* Accent-colored chips */
+[data-scenario-accent="amber"] .chip.selected { background: var(--amber); }
+[data-scenario-accent="sky-deep"] .chip.selected { background: var(--sky-deep); }
+[data-scenario-accent="green"] .chip.selected { background: var(--green); }
+[data-scenario-accent="ochre"] .chip.selected { background: var(--ochre); }
+[data-scenario-accent="coaster-red"] .chip.selected { background: var(--coaster-red); }
+
+.reset-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1.5px solid var(--sand);
+  background: #fff;
+  color: var(--earth-warm);
+  cursor: pointer;
+  min-height: 34px;
+  touch-action: manipulation;
+  margin-top: 12px;
+}
+.reset-btn:hover { border-color: var(--earth-warm); background: var(--sand-light); }
+
+/* ── Pros / Cons ── */
+.pros-cons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 24px;
+}
+.pros-cons h4 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.pros-cons ul {
+  list-style: none;
+  font-size: 0.85rem;
+  color: var(--earth-mid);
+}
+.pros-cons li { padding: 3px 0; }
+.pros-cons li::before { margin-right: 6px; }
+.pros li::before { content: '+'; color: var(--green); font-weight: 700; }
+.cons li::before { content: '\2013'; color: var(--coaster-red); font-weight: 700; }
+
+/* ── Itinerary ── */
+.itinerary-section { margin-top: 24px; }
+.itinerary-section h4 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.itinerary-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.itin-step {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  padding: 6px 12px;
+  background: var(--sand-light);
+  border-radius: 8px;
+  color: var(--earth-mid);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.itin-step .day-num {
+  font-weight: 600;
+  color: var(--earth-deep);
+}
+
+/* ── Decision Factors ── */
+.factors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+.factor-card {
+  background: #fff;
+  border: 1px solid var(--sand);
+  border-radius: 12px;
+  padding: 24px;
+}
+.factor-icon { font-size: 1.5rem; margin-bottom: 8px; }
+.factor-card h4 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.factor-card p {
+  font-size: 0.85rem;
+  color: var(--earth-mid);
+  line-height: 1.5;
+}
+
+/* ── Voting ── */
+.vote-section { margin-top: 0; }
+.family-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.family-btn {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 2px solid var(--sand);
+  background: #fff;
+  color: var(--earth-mid);
+  cursor: pointer;
+  min-height: 44px;
+  touch-action: manipulation;
+  transition: all 0.15s;
+}
+.family-btn:hover { border-color: var(--earth-warm); }
+.family-btn.active {
+  background: var(--coaster-red);
+  color: #fff;
+  border-color: var(--coaster-red);
+}
+
+.vote-instruction {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--earth-warm);
+  margin-bottom: 16px;
+  min-height: 24px;
+}
+
+.vote-scenarios {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.vote-card {
+  padding: 16px;
+  border: 2px solid var(--sand);
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: all 0.15s;
+  text-align: center;
+}
+.vote-card:hover { border-color: var(--earth-warm); transform: translateY(-1px); }
+.vote-card .vc-name {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+.vote-card .vc-tally {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--earth-warm);
+}
+.vote-card .vc-voters {
+  font-size: 0.8rem;
+  color: var(--earth-mid);
+  margin-top: 4px;
+}
+
+/* ── Vote Sharing ── */
+.vote-share {
+  background: var(--sand-light);
+  border-radius: 12px;
+  padding: 24px;
+  margin-top: 20px;
+}
+.vote-share h4 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+.vote-share-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: flex-start;
+}
+.share-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.8rem;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  background: var(--coaster-red);
+  color: #fff;
+  cursor: pointer;
+  min-height: 40px;
+  touch-action: manipulation;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.share-btn:hover { background: var(--coaster-red-light); }
+.share-btn.secondary {
+  background: var(--earth-warm);
+}
+.share-btn.secondary:hover { background: var(--earth-mid); }
+
+.import-area {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: flex-start;
+}
+.import-area textarea {
+  font-family: 'DM Mono', monospace;
+  font-size: 16px;
+  padding: 10px 12px;
+  border: 1.5px solid var(--sand);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--earth-deep);
+  width: 100%;
+  max-width: 400px;
+  min-height: 44px;
+  resize: vertical;
+}
+.share-feedback {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--green);
+  margin-top: 8px;
+  min-height: 20px;
+}
+
+/* ── Notes ── */
+.notes-area textarea {
+  width: 100%;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+  padding: 16px;
+  border: 1.5px solid var(--sand);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--earth-deep);
+  min-height: 120px;
+  resize: vertical;
+  line-height: 1.6;
+}
+.notes-area textarea:focus {
+  outline: none;
+  border-color: var(--earth-warm);
+}
+
+/* ── Footer ── */
+footer {
+  text-align: center;
+  padding: 40px 24px;
+  border-top: 1px solid var(--sand);
+  margin-top: 20px;
+}
+footer p {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--earth-warm);
+  line-height: 1.8;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .hero { padding: 48px 20px 40px; }
+  .scenario-detail { padding: 20px; }
+  .pros-cons { grid-template-columns: 1fr; }
+  .factors-grid { grid-template-columns: 1fr; }
+  .section { padding: 36px 0; }
+}
+@media (max-width: 420px) {
+  .scenario-tab { padding: 10px 14px; font-size: 0.78rem; }
+  .scenario-detail { padding: 16px; }
+  .vote-scenarios { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── Hero ── -->
+<header class="hero">
+  <div class="hero-inner">
+    <h1>Swainston Family <span class="dot">·</span> Magic Mountain 2026</h1>
+    <p class="tagline">Highlands Ranch → Valencia · Summer 2026 · Family of 6</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- ── 01 Scenarios ── -->
+  <section class="section" id="scenarios">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Scenarios</h2>
+    </div>
+
+    <div class="scenario-tabs" id="scenarioTabs"></div>
+    <div class="scenario-detail" id="scenarioDetail"></div>
+  </section>
+
+  <!-- ── 02 Itinerary (rendered inside scenario detail) ── -->
+
+  <!-- ── 03 Key Decision Factors ── -->
+  <section class="section" id="factors">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Key Decision Factors</h2>
+    </div>
+    <div class="factors-grid">
+      <div class="factor-card">
+        <div class="factor-icon">&#x1F697;</div>
+        <h4>The 60-Mile Variable</h4>
+        <p>Moreno Valley to Valencia is 60 mi / 1 hr without traffic, 1.5&ndash;2 hrs with LA traffic. Plan around it.</p>
+      </div>
+      <div class="factor-card">
+        <div class="factor-icon">&#x1F3A2;</div>
+        <h4>Season Passes</h4>
+        <p>Admission is $0 with season passes. Budget $100&ndash;$150/day for park food for 6 people.</p>
+      </div>
+      <div class="factor-card">
+        <div class="factor-icon">&#x2696;&#xFE0F;</div>
+        <h4>The Compromise Structure</h4>
+        <p>Hotel is your base for park days. Family visit is front-loaded so you end strong at the park.</p>
+      </div>
+      <div class="factor-card">
+        <div class="factor-icon">&#x1F3E8;</div>
+        <h4>2 Rooms Minimum</h4>
+        <p>Family of 6 = 2 rooms every night at ~$160/room = $320/night. This is the biggest variable.</p>
+      </div>
+      <div class="factor-card">
+        <div class="factor-icon">&#x1F468;&#x200D;&#x1F469;&#x200D;&#x1F467;&#x200D;&#x1F466;</div>
+        <h4>Family Visit</h4>
+        <p>Moreno Valley relatives = $0 lodging + home-cooked meals. Real connection, real savings.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 04 Family Vote ── -->
+  <section class="section" id="voting">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Family Vote</h2>
+    </div>
+
+    <div class="vote-section">
+      <div class="family-buttons" id="familyButtons"></div>
+      <div class="vote-instruction" id="voteInstruction">Tap a family member, then pick a scenario.</div>
+      <div class="vote-scenarios" id="voteScenarios"></div>
+
+      <div class="vote-share">
+        <h4>Share Votes via iMessage</h4>
+        <div class="vote-share-row">
+          <button class="share-btn" id="copyVoteBtn" onclick="copyVoteCode()">Copy Vote Code</button>
+        </div>
+        <div class="share-feedback" id="copyFeedback"></div>
+        <div class="import-area">
+          <textarea id="importInput" placeholder="Paste a vote code here..." rows="2"></textarea>
+          <button class="share-btn secondary" onclick="importVotes()">Import Votes</button>
+        </div>
+        <div class="share-feedback" id="importFeedback"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 05 Family Notes ── -->
+  <section class="section" id="notes">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Family Notes</h2>
+    </div>
+    <div class="notes-area">
+      <textarea id="notesTextarea" placeholder="Anything &#8212; questions, ideas, must-dos, food spots, things to pack, ride wish lists..."></textarea>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>All estimates are midpoints &middot; Actual costs vary by gas prices, hotel availability, and California appetites</p>
+  <p style="margin-top:6px;">Swainston Family &middot; Magic Mountain 2026</p>
+</footer>
+
+<script>
+// ── Scenario Data ──
+const SCENARIOS = [
+  {
+    id: 'bc', code: 'BC', emoji: '&#x2B50;', name: 'Best Compromise', accent: 'amber',
+    tagline: '"Arrive at Family. Finish at the Park."',
+    days: '5 Days', lodging: '2 Nights Relatives (Moreno Valley) + 3 Nights Hotel (Valencia)',
+    recommended: true,
+    items: [
+      { label: 'Gas (RT via Moreno Valley)', mid: 425, min: 380, max: 480 },
+      { label: 'Relatives \u2014 2 nights', mid: 0, min: 0, max: 0 },
+      { label: 'Hotel near park \u2014 3 nights \u00d7 2 rooms', mid: 960, min: 840, max: 1080 },
+      { label: 'Food \u2014 5 days (2 home + 3 out)', mid: 450, min: 360, max: 540 },
+      { label: 'SFMM Parking \u2014 2 days', mid: 70, min: 70, max: 70 },
+      { label: 'Tolls / Transport', mid: 50, min: 40, max: 65 },
+      { label: 'Spending Money \u2014 6 ppl', mid: 150, min: 100, max: 200 }
+    ],
+    pros: ['2 full park days from hotel 5 min from SFMM', 'Wake up and walk to park, hotel pool', '2 free nights at relatives, $459 saved vs Best Experience', 'Home-cooked meals first 2 days'],
+    cons: ['Mid-trip transition day', 'Two lodging check-ins', '3 hotel nights still costly'],
+    itinerary: [
+      { day: 1, desc: 'Drive to Moreno Valley (15\u201316 hrs)' },
+      { day: 2, desc: 'Family Day' },
+      { day: 3, desc: 'Transition 60 mi to Valencia, hotel check-in' },
+      { day: 4, desc: 'Park Day 1' },
+      { day: 5, desc: 'Park Day 2' }
+    ]
+  },
+  {
+    id: 'be', code: 'BE', emoji: '&#x1F3A2;', name: 'Best Experience', accent: 'sky-deep',
+    tagline: 'Full Hotel (Valencia), No Relatives Stop',
+    days: '4\u20136 Days', lodging: 'Full Hotel (Valencia)',
+    items: [
+      { label: 'Gas (RT ~2,100 mi)', mid: 354, min: 310, max: 400 },
+      { label: 'Hotel \u2014 4\u20135 nights \u00d7 2 rooms', mid: 1440, min: 1280, max: 1600 },
+      { label: 'Food \u2014 5 days', mid: 500, min: 400, max: 600 },
+      { label: 'SFMM Parking \u2014 2 days', mid: 70, min: 70, max: 70 },
+      { label: 'Tolls / Transport', mid: 50, min: 40, max: 65 },
+      { label: 'Spending Money \u2014 6 ppl', mid: 150, min: 100, max: 200 }
+    ],
+    pros: ['5 min from park', 'Full schedule control', 'Hotel pool', 'No transitions'],
+    cons: ['Most expensive', 'No home meals', 'No family visit'],
+    itinerary: [
+      { day: 1, desc: 'Drive to Valencia' },
+      { day: 2, desc: 'Rest / pool' },
+      { day: 3, desc: 'Park Day 1' },
+      { day: 4, desc: 'Park Day 2' },
+      { day: 5, desc: 'Flex / return' }
+    ]
+  },
+  {
+    id: 'bv', code: 'BV', emoji: '&#x1F4B0;', name: 'Best Value', accent: 'green',
+    tagline: '2 Nights Hotel (Valencia) + 3+ Nights Relatives',
+    days: '4\u20136 Days', lodging: '2 Nights Hotel + 3+ Nights Relatives',
+    items: [
+      { label: 'Gas (RT ~2,260 mi + park days)', mid: 425, min: 380, max: 480 },
+      { label: 'Relatives \u2014 3+ nights', mid: 0, min: 0, max: 0 },
+      { label: 'Hotel near park \u2014 2 nights \u00d7 2 rooms', mid: 640, min: 560, max: 720 },
+      { label: 'Food \u2014 5 days (home meals help)', mid: 375, min: 300, max: 450 },
+      { label: 'SFMM Parking \u2014 2 days', mid: 70, min: 70, max: 70 },
+      { label: 'Tolls / Transport', mid: 50, min: 40, max: 65 },
+      { label: 'Spending Money \u2014 6 ppl', mid: 150, min: 100, max: 200 }
+    ],
+    pros: ['Saves ~$854 vs full hotel', 'Real family connection', '2 park days', 'Home meals'],
+    cons: ['60 mi each way to park on non-hotel days', 'Schedule coordination with relatives'],
+    itinerary: [
+      { day: 1, desc: 'Drive to Moreno Valley' },
+      { day: 2, desc: 'Family Day' },
+      { day: 3, desc: 'Family + drive to Valencia' },
+      { day: 4, desc: 'Park Day 1' },
+      { day: 5, desc: 'Park Day 2' },
+      { day: 6, desc: 'Return via relatives' }
+    ]
+  },
+  {
+    id: 'qr', code: 'QR', emoji: '&#x26A1;', name: 'Quick + Relatives', accent: 'ochre',
+    tagline: '1 Night Relatives + 2 Nights Hotel',
+    days: '3\u20134 Days', lodging: '1\u20132 Nights Relatives + 2 Nights Hotel',
+    items: [
+      { label: 'Gas (RT ~2,260 mi + park day)', mid: 400, min: 360, max: 455 },
+      { label: 'Relatives \u2014 1\u20132 nights', mid: 0, min: 0, max: 0 },
+      { label: 'Hotel near park \u2014 2 nights \u00d7 2 rooms', mid: 640, min: 560, max: 720 },
+      { label: 'Food \u2014 3.5 days', mid: 250, min: 200, max: 320 },
+      { label: 'SFMM Parking \u2014 1 day', mid: 35, min: 35, max: 35 },
+      { label: 'Tolls / Transport', mid: 50, min: 40, max: 65 },
+      { label: 'Spending Money \u2014 6 ppl', mid: 150, min: 100, max: 200 }
+    ],
+    pros: ['Lowest cost with hotel', 'Less PTO', 'Family visit included'],
+    cons: ['Long drive for 1 park day', 'Tight timeline', 'Most coordination'],
+    itinerary: [
+      { day: 1, desc: 'Drive to Moreno Valley' },
+      { day: 2, desc: 'Drive to Valencia, hotel' },
+      { day: 3, desc: 'Park Day' },
+      { day: 4, desc: 'Drive home' }
+    ]
+  },
+  {
+    id: 'qh', code: 'QH', emoji: '&#x1F3E8;', name: 'Quick + Hotel', accent: 'coaster-red',
+    tagline: 'Hotel Only (Valencia)',
+    days: '3 Days', lodging: 'Hotel Only (Valencia)',
+    items: [
+      { label: 'Gas (RT ~2,100 mi)', mid: 354, min: 310, max: 400 },
+      { label: 'Hotel \u2014 2\u20133 nights \u00d7 2 rooms', mid: 960, min: 640, max: 960 },
+      { label: 'Food \u2014 3.5 days', mid: 350, min: 280, max: 420 },
+      { label: 'SFMM Parking \u2014 1 day', mid: 35, min: 35, max: 35 },
+      { label: 'Tolls / Transport', mid: 50, min: 40, max: 65 },
+      { label: 'Spending Money \u2014 6 ppl', mid: 150, min: 100, max: 200 }
+    ],
+    pros: ['Shortest time', '$665 less than full hotel', 'Schedule control'],
+    cons: ['Long drive for 1 park day', 'Hotel still expensive', 'Rushed'],
+    itinerary: [
+      { day: 1, desc: 'Drive to Valencia' },
+      { day: 2, desc: 'Park Day' },
+      { day: 3, desc: 'Drive home' }
+    ]
+  }
+];
+
+const FAMILY = ['Caleb', 'Wife', 'Mila', 'Lane', 'Wyatt', 'Chloe'];
+const ALIAS_MAP = { BC: 'bc', BE: 'be', BV: 'bv', QR: 'qr', QH: 'qh' };
+const CODE_MAP = { bc: 'BC', be: 'BE', bv: 'BV', qr: 'QR', qh: 'QH' };
+
+let activeScenario = 0;
+let selectedCosts = {}; // { scenarioId: { itemIndex: 'low'|'mid'|'high' } }
+let selectedVoter = null;
+
+// ── Init ──
+function init() {
+  renderTabs();
+  renderScenario(0);
+  renderFamilyButtons();
+  renderVoteCards();
+  loadNotes();
+}
+
+// ── Tabs ──
+function renderTabs() {
+  const el = document.getElementById('scenarioTabs');
+  el.innerHTML = SCENARIOS.map((s, i) => {
+    const rec = s.recommended ? `<span class="rec-badge">Rec</span>` : '';
+    return `<button class="scenario-tab${i === activeScenario ? ' active' : ''}" data-accent="${s.accent}" onclick="selectScenario(${i})">${rec}${s.emoji} ${s.name}</button>`;
+  }).join('');
+}
+
+function selectScenario(i) {
+  activeScenario = i;
+  renderTabs();
+  renderScenario(i);
+}
+
+// ── Scenario Detail ──
+function renderScenario(i) {
+  const s = SCENARIOS[i];
+  if (!selectedCosts[s.id]) {
+    selectedCosts[s.id] = {};
+    s.items.forEach((_, idx) => { selectedCosts[s.id][idx] = 'mid'; });
+  }
+  const sel = selectedCosts[s.id];
+  const total = s.items.reduce((sum, item, idx) => {
+    const pick = sel[idx];
+    return sum + (pick === 'low' ? item.min : pick === 'high' ? item.max : item.mid);
+  }, 0);
+
+  const rows = s.items.map((item, idx) => {
+    const current = sel[idx];
+    const val = current === 'low' ? item.min : current === 'high' ? item.max : item.mid;
+    const isFixed = item.min === item.max;
+    const chips = isFixed ? `<span style="font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--earth-warm);">Fixed</span>` : `
+      <div class="chip-group">
+        <button class="chip${current === 'low' ? ' selected' : ''}" onclick="setCost('${s.id}',${idx},'low')">$${item.min}</button>
+        <button class="chip${current === 'mid' ? ' selected' : ''}" onclick="setCost('${s.id}',${idx},'mid')">${item.mid !== item.min && item.mid !== item.max ? '$' + Math.round((item.min + item.max) / 2) : '$' + item.mid}</button>
+        <button class="chip${current === 'high' ? ' selected' : ''}" onclick="setCost('${s.id}',${idx},'high')">$${item.max}</button>
+      </div>`;
+    return `<tr><td>${item.label}</td><td>${chips}</td><td>$${val.toLocaleString()}</td></tr>`;
+  }).join('');
+
+  const prosHtml = s.pros.map(p => `<li>${p}</li>`).join('');
+  const consHtml = s.cons.map(c => `<li>${c}</li>`).join('');
+  const itinHtml = s.itinerary.map(step =>
+    `<div class="itin-step"><span class="day-num">D${step.day}</span> ${step.desc}</div>`
+  ).join('');
+
+  document.getElementById('scenarioDetail').setAttribute('data-scenario-accent', s.accent);
+  document.getElementById('scenarioDetail').innerHTML = `
+    <div class="scenario-meta">
+      <span class="scenario-name">${s.emoji} ${s.name}</span>
+      <span class="scenario-days">${s.days}</span>
+    </div>
+    <div class="scenario-tagline">${s.tagline}</div>
+    <div class="scenario-lodging">${s.lodging}</div>
+    <table class="cost-table">
+      <thead><tr><th>Line Item</th><th>Adjust</th><th>Cost</th></tr></thead>
+      <tbody>
+        ${rows}
+        <tr class="total-row"><td>Total</td><td></td><td>$${total.toLocaleString()}</td></tr>
+      </tbody>
+    </table>
+    <button class="reset-btn" onclick="resetCosts('${s.id}')">Reset to Midpoints</button>
+    <div class="pros-cons">
+      <div class="pros"><h4>Pros</h4><ul>${prosHtml}</ul></div>
+      <div class="cons"><h4>Cons</h4><ul>${consHtml}</ul></div>
+    </div>
+    <div class="itinerary-section">
+      <h4>Itinerary</h4>
+      <div class="itinerary-steps">${itinHtml}</div>
+    </div>
+  `;
+}
+
+function setCost(scenarioId, idx, level) {
+  selectedCosts[scenarioId][idx] = level;
+  renderScenario(activeScenario);
+}
+
+function resetCosts(scenarioId) {
+  const s = SCENARIOS.find(x => x.id === scenarioId);
+  s.items.forEach((_, idx) => { selectedCosts[scenarioId][idx] = 'mid'; });
+  renderScenario(activeScenario);
+}
+
+// ── Voting ──
+function getVotes() {
+  try { return JSON.parse(localStorage.getItem('sfmm-trip-votes') || '{}'); } catch { return {}; }
+}
+function saveVotes(v) { localStorage.setItem('sfmm-trip-votes', JSON.stringify(v)); }
+
+function renderFamilyButtons() {
+  const el = document.getElementById('familyButtons');
+  el.innerHTML = FAMILY.map(f =>
+    `<button class="family-btn${selectedVoter === f ? ' active' : ''}" onclick="selectVoter('${f}')">${f}</button>`
+  ).join('');
+}
+
+function selectVoter(name) {
+  selectedVoter = selectedVoter === name ? null : name;
+  renderFamilyButtons();
+  document.getElementById('voteInstruction').textContent =
+    selectedVoter ? `Now tap a scenario to cast ${selectedVoter}'s vote.` : 'Tap a family member, then pick a scenario.';
+}
+
+function renderVoteCards() {
+  const votes = getVotes();
+  const el = document.getElementById('voteScenarios');
+  el.innerHTML = SCENARIOS.map(s => {
+    const voters = FAMILY.filter(f => votes[f] === s.id);
+    const tally = voters.length;
+    return `<div class="vote-card" onclick="castVote('${s.id}')">
+      <div class="vc-name">${s.emoji} ${s.name}</div>
+      <div class="vc-tally">${tally} vote${tally !== 1 ? 's' : ''}</div>
+      <div class="vc-voters">${voters.join(', ') || '\u2014'}</div>
+    </div>`;
+  }).join('');
+}
+
+function castVote(scenarioId) {
+  if (!selectedVoter) return;
+  const votes = getVotes();
+  votes[selectedVoter] = scenarioId;
+  saveVotes(votes);
+  selectedVoter = null;
+  renderFamilyButtons();
+  renderVoteCards();
+  document.getElementById('voteInstruction').textContent = 'Vote recorded! Tap another member to continue.';
+}
+
+// ── Vote Sharing ──
+function copyVoteCode() {
+  const votes = getVotes();
+  const parts = Object.entries(votes).filter(([_, v]) => v).map(([name, sid]) => `${name}=${CODE_MAP[sid]}`);
+  if (!parts.length) {
+    document.getElementById('copyFeedback').textContent = 'No votes to share yet.';
+    return;
+  }
+  const code = '\uD83C\uDFA2 SFMM Trip Votes: ' + parts.join(', ');
+  navigator.clipboard.writeText(code).then(() => {
+    document.getElementById('copyFeedback').textContent = 'Copied! Paste into iMessage.';
+    setTimeout(() => { document.getElementById('copyFeedback').textContent = ''; }, 3000);
+  }).catch(() => {
+    // Fallback
+    document.getElementById('copyFeedback').textContent = code;
+  });
+}
+
+function importVotes() {
+  const raw = document.getElementById('importInput').value.trim();
+  if (!raw) return;
+  const match = raw.match(/Votes:\s*(.*)/i);
+  if (!match) {
+    document.getElementById('importFeedback').textContent = 'Could not parse vote code.';
+    return;
+  }
+  const pairs = match[1].split(',').map(s => s.trim());
+  const votes = getVotes();
+  let count = 0;
+  pairs.forEach(pair => {
+    const [name, code] = pair.split('=').map(s => s.trim());
+    if (name && code && ALIAS_MAP[code.toUpperCase()]) {
+      votes[name] = ALIAS_MAP[code.toUpperCase()];
+      count++;
+    }
+  });
+  saveVotes(votes);
+  renderVoteCards();
+  document.getElementById('importFeedback').textContent = `Imported ${count} vote${count !== 1 ? 's' : ''}.`;
+  document.getElementById('importInput').value = '';
+  setTimeout(() => { document.getElementById('importFeedback').textContent = ''; }, 3000);
+}
+
+// ── Notes ──
+function loadNotes() {
+  const el = document.getElementById('notesTextarea');
+  el.value = localStorage.getItem('sfmm-trip-notes') || '';
+  el.addEventListener('input', () => {
+    localStorage.setItem('sfmm-trip-notes', el.value);
+  });
+}
+
+// ── Boot ──
+init();
+</script>
+</body>
+</html>
